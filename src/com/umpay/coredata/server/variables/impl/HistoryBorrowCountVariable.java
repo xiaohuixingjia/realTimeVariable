@@ -1,0 +1,36 @@
+package com.umpay.coredata.server.variables.impl;
+
+import com.umpay.coredata.server.Factory.ConditionFactory;
+import com.umpay.coredata.server.Pretreatmet.Pretreatmet;
+import com.umpay.coredata.server.variables.AbsVariable;
+
+/**
+ * 历史借贷和结贷笔数
+ * @author pangwei
+ *
+ * @param <T>
+ */
+public class HistoryBorrowCountVariable<T> extends AbsVariable<T> {
+	private Long l=0l;
+	public HistoryBorrowCountVariable(int index, String conditionStr, String mergeElems) {
+		super(index, ConditionFactory.getCD(conditionStr), mergeElems);
+	}
+	public HistoryBorrowCountVariable(int index, String conditionStr, String mergeElems,Pretreatmet pretreatmet) {
+		super(index, ConditionFactory.getCD(conditionStr), mergeElems,pretreatmet);
+	}
+	@Override
+	protected void childMerge(T p) {
+		System.out.println(p);
+		l++;
+ 	}
+
+	@Override
+	public void clear() {
+		l = 0l;
+	}
+
+	@Override
+	protected String getV() throws Exception {
+		return String.valueOf(l);
+	}
+}

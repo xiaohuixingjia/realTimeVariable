@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration scan="true" scanPeriod="5" debug="false">
+
+		<Property name="log.base" value="log/" />
+<!-- 
+	 <Property name="log.base" value="E:\\dataproductservicelog\\dps-service-http\\" />
+ -->
+
+
+	<!--console -->
+	<appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>[%date{yyyyMMdd HHmmss SSS}][%-5p][%t][%c{0}] - %m%n
+			</pattern>
+		</encoder>
+	</appender>
+
+	<!-- score log -->
+	<appender name="detail"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${log.base}detail.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>${log.base}score.%d{yyyy-MM-dd}.log
+			</FileNamePattern>
+		</rollingPolicy>
+		<encoder>
+			<pattern>[%date{yyyyMMdd HHmmss SSS}][%-5p][%t][%c{0}] - %m%n
+			</pattern>
+		</encoder>
+	</appender>
+
+
+	
+    <logger name="detail_info" additivity="false">
+		<appender name="detail_info"
+			class="ch.qos.logback.core.rolling.RollingFileAppender">
+			<file>${log.base}detail_info.log</file>
+			<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+				<FileNamePattern>${log.base}detail_info.%d{yyyy-MM-dd}.log
+				</FileNamePattern>
+			</rollingPolicy>
+			<encoder>
+				<pattern>%m%n</pattern>
+			</encoder>
+		</appender>
+	</logger>
+
+	<!-- 三十天 -->
+    <logger name="shishi_30_days" additivity="false">
+		<appender name="shishi_30_days"
+			class="ch.qos.logback.core.rolling.RollingFileAppender">
+			<file>${log.base}shishi_30_days.log</file>
+			<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+				<FileNamePattern>${log.base}shishi_30_days.%d{yyyy-MM-dd}.log
+				</FileNamePattern>
+			</rollingPolicy>
+			<encoder>
+				<pattern>%m%n</pattern>
+			</encoder>
+		</appender>
+	</logger>
+	
+	<!-- 一年 -->
+    <logger name="shishi_one_year_days" additivity="false">
+		<appender name="shishi_one_year_days"
+			class="ch.qos.logback.core.rolling.RollingFileAppender">
+			<file>${log.base}shishi_one_year_days.log</file>
+			<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+				<FileNamePattern>${log.base}shishi_one_year_days.%d{yyyy-MM-dd}.log
+				</FileNamePattern>
+			</rollingPolicy>
+			<encoder>
+				<pattern>%m%n</pattern>
+			</encoder>
+		</appender>
+	</logger>
+	
+	<!-- 历史 -->
+    <logger name="shishi_history" additivity="false">
+		<appender name="shishi_history_days"
+			class="ch.qos.logback.core.rolling.RollingFileAppender">
+			<file>${log.base}shishi_one_year_days.log</file>
+			<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+				<FileNamePattern>${log.base}shishi_history_days.%d{yyyy-MM-dd}.log
+				</FileNamePattern>
+			</rollingPolicy>
+			<encoder>
+				<pattern>%m%n</pattern>
+			</encoder>
+		</appender>
+	</logger>
+	
+	
+    <logger name="overdue_30_days" additivity="false">
+		<appender name="overdue_30_days"
+			class="ch.qos.logback.core.rolling.RollingFileAppender">
+			<file>${log.base}overdue_30_days.log</file>
+			<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+				<FileNamePattern>${log.base}overdue_30_days.%d{yyyy-MM-dd}.log
+				</FileNamePattern>
+			</rollingPolicy>
+			<encoder>
+				<pattern>%m%n</pattern>
+			</encoder>
+		</appender>
+	</logger>
+    <logger name="overdue_one_year_days" additivity="false">
+		<appender name="overdue_one_year_days"
+			class="ch.qos.logback.core.rolling.RollingFileAppender">
+			<file>${log.base}overdue_one_year_days.log</file>
+			<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+				<FileNamePattern>${log.base}overdue_one_year_days.%d{yyyy-MM-dd}.log
+				</FileNamePattern>
+			</rollingPolicy>
+			<encoder>
+				<pattern>%m%n</pattern>
+			</encoder>
+		</appender>
+	</logger>
+    <logger name="overdue_history_days" additivity="false">
+		<appender name="overdue_history_days"
+			class="ch.qos.logback.core.rolling.RollingFileAppender">
+			<file>${log.base}overdue_history_days.log</file>
+			<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+				<FileNamePattern>${log.base}overdue_history_days.%d{yyyy-MM-dd}.log
+				</FileNamePattern>
+			</rollingPolicy>
+			<encoder>
+				<pattern>%m%n</pattern>
+			</encoder>
+		</appender>
+	</logger>
+    <logger name="duoTou_history_days" additivity="false">
+		<appender name="duoTou_history_days"
+			class="ch.qos.logback.core.rolling.RollingFileAppender">
+			<file>${log.base}duoTou_history_days.log</file>
+			<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+				<FileNamePattern>${log.base}duoTou_history_days.%d{yyyy-MM-dd}.log
+				</FileNamePattern>
+			</rollingPolicy>
+			<encoder>
+				<pattern>%m%n</pattern>
+			</encoder>
+		</appender>
+	</logger>
+    <logger name="duoTou_30_days" additivity="false">
+		<appender name="duoTou_30_days"
+			class="ch.qos.logback.core.rolling.RollingFileAppender">
+			<file>${log.base}duoTou_30_days.log</file>
+			<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+				<FileNamePattern>${log.base}duoTou_30_days.%d{yyyy-MM-dd}.log
+				</FileNamePattern>
+			</rollingPolicy>
+			<encoder>
+				<pattern>%m%n</pattern>
+			</encoder>
+		</appender>
+	</logger>
+	
+	<logger name="java.sql.Connection" additivity="false">
+		<level value="debug" />
+	</logger>
+
+	<logger name="java.sql.PreparedStatement" additivity="false">
+		<level value="debug" />
+	</logger>
+
+	<root level="info">
+		<appender-ref ref="stdout" />
+		<appender-ref ref="detail" />
+	</root>
+
+</configuration>
